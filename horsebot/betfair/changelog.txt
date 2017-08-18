@@ -1,0 +1,33 @@
+--- CHANGE LOG ---
+V0.01:
+* get_menu_paths() added
+
+V0.02:
+* get_menu_paths() updated to handle malformed json (betfair bug)
+
+V0.03:
+* get_settled_bets() updated to take 'groupBy' parameters
+
+V0.04:
+* get_menu_paths() updated to replace '/' in names with '-'
+  e.g. 'Over/Under 2.5 Goals' will become 'Over-Under 2.5 Goals'
+* price tools added (convert_price & get_price_spread)
+* get_price_spread() now returns an integer >= 0
+
+V0.05:
+* modified for Python 3
+
+V0.06 (April 2015)
+* get_current_bets() added - simplified version of listCurrentOrders
+
+V0.07 (July 2015)
+* string dates converted to datetime objects:
+    get_markets() response now returns datetime object for 'marketStartTime'
+    get_market_books() response now returns datetime object for 'lastMatchTime'
+    get_current_bets() response now returns datetime object for 'placedDate'
+    place_bets() response now returns datetime object for 'placedDate'
+* get_current_bets() response is now sorted as [market_id][selection_id] = list of bets
+* cancel_bets() added
+* get_market_profit_loss() added
+* requests.Session() added. Http connections are now persistent.
+  response times approx 400% faster!
